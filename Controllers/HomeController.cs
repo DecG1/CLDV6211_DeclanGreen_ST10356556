@@ -4,7 +4,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController:Controller  
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -23,11 +23,7 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        public IActionResult AboutUs() 
         
-        { 
-            return View();
-        }
 
         public IActionResult ContactUs()
 
