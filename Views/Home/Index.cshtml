@@ -1,11 +1,65 @@
-﻿@{
+@model int
+@{
     ViewData["Title"] = "Home Page";
+    var userID = ViewData["userID"];
+    var products = ViewData["Products"] as List<Online_Store.Models.Table_2>;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to KhumaloCraft</h1>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Welcome</h1>
+        <img src="/Images/Logo1.png">
+    </div>
 
-    <img src="~/Images/Logo1.png" />
+    <div class="alert alert-info">
+        <h2>Welcome to KhumaloCrafts Home Page!</h2>
+        @if (userID != null)
+        {
+            <p>User ID: <strong>@userID</strong></p>
+        }
+    </div>
 
-    <p> </p>
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2>Previously Ordered Products</h2>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover mb-0">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Availability</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var product in products)
+                    {
+                        <tr>
+                            <td>@product.Name</td>
+                            <td>@product.Price</td>
+                            <td>@product.Category</td>
+                            <td>@product.Availability</td>
+                            <td>
+                                <form asp-controller="Home" asp-action="MyWork" method="post" class="mb-0">
+                                    <input type="hidden" name="userID" value="@userID" />
+                                    <input type="hidden" name="productID" value="@product.ProductID" />
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="placeOrder(this)">Place Order</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<script>
+    function placeOrder(button) {
+        alert('Your order has been placed');
+        button.closest('form').submit();
+    }
+</script>

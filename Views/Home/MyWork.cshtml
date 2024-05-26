@@ -1,37 +1,99 @@
-﻿
 @{
     ViewData["Title"] = "MyWork";
 }
 
-<h1>My Work</h1>
-<p> KhumaloCraft is the foremost stockist of handcrafted goods.
-    these good include:Hand made Wooden furniture, clay and porcelain pots and various other 
-    locally sourced goods from various talented craftsmen
-<div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
 
-<h2>Artisan Wood Table: R3000<h2>
-    
-</p>
-<img src="/Images/WoodTable2.webp" width="200" height="200">
-<div>
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
 
-    <div>   
-<h3>Oak Dining room chair set: R4000 </h3>
-<img src="/Images/WoodChairSet.jpg"/>
+        form {
+            margin-bottom: 20px;
+        }
 
-    </div
+            form input[type="text"] {
+                width: 100%;
+                margin-bottom: 10px;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
 
-   <div>
-<h4> Ceramic Clay Pots: R450</h4>
-<img src="/Images/ClayPot1.jpg"/>
+            form button {
+                padding: 10px 20px;
+                background-color: #007bff;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
 
-   </div>
+                form button:hover {
+                    background-color: #0056b3;
+                }
+    </style>
+</head>
+<body>
 
-   <div>
-    
-       <h5>Decorative Flower Pots: R300</h5>
-       <img src="/Images/FlowerPot1.jpg"/>
+    <div class="container">
+        <h1 class="text-center">My Work</h1>
 
-   </div>
+        <form action="/Product/MyWork" method="post">
+            <p>Enter the product you want to purchase as well as the required information</p>
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="text" name="Price" placeholder="Price" required>
+            <input type="text" name="Category" placeholder="Category" required>
+            <input type="text" name="Availability" placeholder="Availability" required>
+            <button type="submit">Submit</button>
+        </form>
 
-    
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Artisan Wood Table: R3000</h2>
+                <img src="/Images/WoodTable2.webp" alt="Artisan Wood Table" class="card-img-top" style="max-width: 200px;">
+                <p class="card-text">This beautifully crafted artisan wood table is perfect for adding a touch of elegance to any room. Made from high-quality wood, it is both sturdy and stylish.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Oak Dining Room Chair Set: R4000</h2>
+                <img src="/Images/WoodChairSet.jpg" alt="Oak Dining Room Chair Set" class="card-img-top" style="max-width: 200px;">
+                <p class="card-text">This oak dining room chair set includes six beautifully crafted chairs that provide both comfort and style. The oak finish gives a warm and inviting feel to your dining room.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Ceramic Clay Pots: R450</h2>
+                <img src="/Images/ClayPot1.jpg" alt="Ceramic Clay Pots" class="card-img-top" style="max-width: 200px;">
+                <p class="card-text">These ceramic clay pots are perfect for planting your favorite flowers or herbs. Their rustic design adds a charming touch to any garden or patio.</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title">Decorative Flower Pots: R300</h2>
+                <img src="/Images/FlowerPot1.jpg" alt="Decorative Flower Pots" class="card-img-top" style="max-width: 200px;">
+                <p class="card-text">These decorative flower pots are ideal for adding a splash of color to your home. They come in various designs and are perfect for displaying your favorite flowers.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
